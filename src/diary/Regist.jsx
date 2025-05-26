@@ -81,13 +81,13 @@ const handleChange = (e) => {
     <>
       <h2>일기 등록</h2>
       <form onSubmit={handleSubmit}>
-        {/*<input
+        {/* <input
           type="number"
           name="id"
           value={form.id}
           onChange={handleChange}
           placeholder="일기 번호를 입력하세요."
-        />*/}
+        /> */}
         <input
           type="text"
           name="title"

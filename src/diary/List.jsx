@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Link,useNavigate } from 'react-router-dom';
 
 const List = () => {
-  const [diarys, setEvents] = useState([]);
+  const [diarys, setDiarys] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -45,7 +45,7 @@ const List = () => {
   useEffect(() => {
     axios.get('http://localhost:8000/diarys/')
       .then((response) => {
-        setEvents(response.data);
+        setDiarys(response.data);
         setLoading(false);
       })
       .catch((err) => {
@@ -63,24 +63,20 @@ const List = () => {
       {diarys.length === 0 ? (
         <p>일기가 없습니다.</p>
       ) : (
-        <ul style={{ listStyle: "none", padding: 0 }}>
-        {diarys.map((diary) => (
-          <li key={diary.id} style={{ marginBottom: '20px', borderBottom: '1px solid #ccc', paddingBottom: '20px' }}>
-            <Link to={`/detail/${diary.id}`} style={{ textDecoration: "none", color: "inherit" }}>
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '20px' }}>
-                {diary.image && imageUrls[diary.id] && (
-                  <img src={imageUrls[diary.id]} alt={diary.title} style={{ width: '200px', height: 'auto', objectFit: 'cover' }} />
-                )}
-                <div>
-                  <h3>{diary.title}</h3>
-                  <p style={{ maxWidth: "500px" }}>{diary.content}</p>
-                </div>
-              </div>
-            </Link>
-          </li>
+        <ul>
+          {diarys.map((diary) => (
+            <li key={diary.id} style={{ marginBottom: '20px' }}>
+              <p><strong>번호:</strong> {diary.id}</p>
+              <h3><Link to={`/detail/${diary.id}`}>{diary.title}</Link></h3>
+              {diary.image && imageUrls[diary.id] && (
+                <img src={imageUrls[diary.id]} alt={diary.title} style={{ width: '200px' }} />
+              )}
+              {/* <p><strong>설명:</strong> {diary.description}</p>
+              <p><strong>위치:</strong> {diary.location}</p>
+              <p><strong>태그:</strong> {diary.tags}</p> */}
+            </li>
           ))}
         </ul>
-
       )}
       <button onClick={() => navigate("/regist")}>일기 등록</button>
     </>
