@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
+import "../css/userReg.css"
 const UserRegForm = () => {
     const [email, setEmail] = useState('');
     const [username, setUserName] = useState('');
@@ -86,7 +86,7 @@ const UserRegForm = () => {
     return (
         <div>
             <h2>회원가입</h2>
-            <form onSubmit={handleSubmit}>
+            <form className="modify-form" onSubmit={handleSubmit}>
                 <div>
                     <input
                         type="email"

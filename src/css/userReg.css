@@ -1,0 +1,119 @@
+/* 전체 폰트 및 배경 설정 */
+body {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 10px 30px;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* 제목 스타일 */
+h2 {
+    color: #222;
+    margin-bottom: 20px;
+    font-size: 28px;
+    text-align: center;
+}
+
+/* 회원가입 폼 스타일 */
+.modify-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* 입력창 스타일 */
+.modify-form input[type="email"],
+.modify-form input[type="text"],
+.modify-form input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* 중복 확인 버튼 스타일 */
+.modify-form button[type="button"] {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.modify-form button[type="button"]:hover {
+    background-color: #45a049;
+}
+
+/* 비밀번호 확인 입력 스타일 */
+.modify-form input[type="password"] {
+    margin-top: 10px;
+}
+
+/* 텍스트 필드 placeholder 스타일 */
+.modify-form input::placeholder {
+    color: #888;
+}
+
+/* 이메일 및 닉네임 중복 확인 상태 텍스트 */
+.modify-form p {
+    font-size: 16px;
+    color: #888;
+    text-align: center;
+}
+
+/* 중복 확인 상태 텍스트 */
+.modify-form .error {
+    color: red;
+    font-size: 16px;
+    text-align: center;
+}
+
+.modify-form .success {
+    color: green;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* 회원가입 버튼 스타일 */
+.modify-form button[type="submit"] {
+    padding: 10px;
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.modify-form button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* 모바일 대응 */
+@media (max-width: 600px) {
+    .modify-form {
+        width: 90%;
+    }
+
+    .modify-form button {
+        font-size: 14px;
+    }
+}
